@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;SpringLoginPage/src/main/webapp/WEB-INF/login-views&apos; to &apos;login_views&apos;" description="Rename resource &apos;login-views&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/WEB-INF/login-views" name="login_views" stamp="1658028204620" updateReferences="true"/>
+</session>

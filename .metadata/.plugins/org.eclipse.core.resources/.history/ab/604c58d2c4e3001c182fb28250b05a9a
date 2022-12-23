@@ -1,0 +1,14 @@
+package com.csmtech.runner;
+
+import com.csmtech.EmailValidationProblem;
+
+public class Runner {
+public static void main(String[] args) {
+	EmailValidationProblem ev=new EmailValidationProblem ();
+	System.out.println(ev.validation("jagan"));
+}
+}
+
+		
+
+

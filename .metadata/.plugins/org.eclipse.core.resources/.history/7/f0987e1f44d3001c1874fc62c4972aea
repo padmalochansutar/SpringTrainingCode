@@ -1,0 +1,15 @@
+package csm.comtech;
+public class descendingOrder {
+	public static void main(String[] args) {
+		String st="padmalochan:156";
+		int d=0;
+		for(int n=0;n<st.length();n++) {
+			if(st.charAt(n)>=48 && st.charAt(n)<=57) {
+				d++;
+			}
+		}
+		System.out.println("The number of digits present are:"+d);
+	}
+	
+	}
+

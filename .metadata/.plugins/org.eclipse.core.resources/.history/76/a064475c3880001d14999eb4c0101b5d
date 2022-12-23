@@ -1,0 +1,160 @@
+package com.csmtech.controller;
+
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.saml2.Saml2RelyingPartyProperties.Registration.Signing;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.csmtech.bean.RegisterBean;
+import com.csmtech.model.Register;
+import com.csmtech.model.SignUp;
+import com.csmtech.repository.RegisterRepository;
+import com.csmtech.repository.SignUpRepository;
+
+
+
+
+@Controller
+public class UserController {
+	  @Autowired
+	private SignUpRepository signUpRepository;
+	  @Autowired
+	  private RegisterRepository registerRepository;
+	
+	@GetMapping("/signup")
+	public String  signUp() {
+		System.out.println("hello");
+		return "register";
+		
+	}
+	@GetMapping("/signin")
+	public String Signin() {
+		return "signin";
+	}
+	@GetMapping("/dataSave")
+	public String dataSave(@ModelAttribute SignUp signUp) throws Exception {
+		
+		Long mobile=signUp.getMobileNo();
+		String tempEmail=signUp.getEmailId();
+		  if(mobile!=null && tempEmail!=null ) {
+				SignUp objList=signUpRepository.findByMobileNo(mobile);
+				try {
+				Long mobileId=objList.getMobileNo();
+				
+				System.out.println("the mobile isd is"+mobileId);
+				if(mobileId!=null) {
+					throw new Exception("user with " + mobileId + " is already exist");
+				}
+				}catch (Exception e) {
+					System.err.println("this is handel");
+				}
+				SignUp emailList=signUpRepository.findByEmailId(tempEmail);
+				try {
+				 String email=emailList.getEmailId();
+				 System.out.println("the emauilid is"+email);
+				 if(email!=null) {
+					 throw new Exception("user with" +email  + "is already exist");
+				 }
+				}catch (Exception e) {
+					
+				}
+			}
+		
+		  
+		  signUpRepository.save(signUp);
+		
+		return "register";
+		
+	}
+	@GetMapping("/login")
+	public String login(@ModelAttribute SignUp signUp,Model model) {
+		String mail=signUp.getEmailId();
+		String passw=signUp.getPassword();
+		
+		SignUp listSignUp= signUpRepository.findByEmailIdAndPassword(mail,passw);
+		try {
+		String gmail=listSignUp.getEmailId();
+		String pwd=listSignUp.getPassword();
+		if(mail.equals(gmail)) {
+			return "UserRegister";	
+			}
+		
+		}catch (Exception e) {
+			model.addAttribute("fail","please Give your valid email and password");
+		}
+		return "signin";
+		
+	}
+	@GetMapping("/register")
+	public String register(@ModelAttribute RegisterBean register,@RequestParam("date") String date, 
+			@RequestParam(value = "quals", required = false)String quals,Model model) {
+		System.out.println("register data is:"+register);
+		System.out.println("quals data is:"+);
+		String fName=register.getFname();
+		System.out.println(fName);
+		System.out.println("Quals : " + quals);
+		
+		LocalDate today = LocalDate.now();
+		System.out.println("today date is :"+today);
+		LocalDate birthday = LocalDate.parse(date);
+		System.out.println("th form date is:"+birthday);
+		
+		Period period = Period.between( birthday,today);
+		int years = period.getYears();
+		
+		System.out.println(register);
+		
+		register.setAge(years);
+		System.out.println("Register Data : " + register);
+		System.out.println("the age is:"+register.getAge());
+		Register registerData = new Register();
+		registerData.setFaname(register.getFaname());
+		registerData.setFname(register.getFname());
+		registerData.setLname(register.getLname());
+		registerData.setAddress(register.getAddress());
+		registerData.setAge(register.getAge());
+		registerData.setEmail(register.getEmail());
+		registerData.setNumber(register.getNumber());
+		registerData.setPincode(register.getPincode());
+		registerData.setGender(register.getGender());
+		String qualString[] = register.getQuals();
+		String qualsDataString = "";
+		for (String string : qualString) {
+			qualsDataString = qualsDataString + string;
+		}
+		System.out.println("the qualification data is:"+qualsDataString);
+		registerData.setQuals(qualsDataString);
+//		List<Register> listData = registerRepository.findByFname(fName);
+//		List<Register> findAll = registerRepository.findAll();
+//		   String dataRegister="";
+//		   Integer countInteger=0;
+//		 for (Register register2 : findAll) {
+//			 
+//			dataRegister=register2.getQuals();
+//			System.out.println("the register data is:"+dataRegister);
+//		}
+//		 System.out.println("...............");
+//		 System.out.println("the register data is:"+dataRegister);
+		
+		 if(registerData.getNumber()==10 && registerData.getPincode()==6 && (registerData.getAge()>=18 && registerData.getAge()<=70)) {
+			
+		 
+		registerRepository.save(registerData);
+			 
+		 }
+		 else {
+			 model.addAttribute("data","Please give your proper phone number,pincode,age");
+		 }
+		return "UserRegister";
+	}
+
+}

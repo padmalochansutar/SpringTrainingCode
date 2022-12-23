@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="D:\Java-Training\EmployeeCRUDProject\pom.xml"/>
+			<item value="D:\Java-Training\EmployeeCRUDProject"/>
+			<item value="D:\Java-Training\Servers"/>
+			<item value="D:\Java-Training\CollectionFirstDemo"/>
+			<item value="D:\Java-Training\JspFirstDemo\src\com\csmtech\FirstServlet.java"/>
+			<item value="D:\Java-Training\GenericServletDemo"/>
+			<item value="D:\Java-Training\GetGeneratedDemoStudent\src\main\java\com\csmtech\util\DbUtil.java"/>
+			<item value="D:\Java-Training\ReadWriteOperation\src\main\java\com\csmtech\runner\Insert.java"/>
+			<item value="D:\Java-Training\JdbcPractise1\src\main\java\com\csmtech\runner\GetRecords.java"/>
+			<item value="D:\Java-Training\PractiseLayered\src\main\java\com\casmtech\controller\BookController.java"/>
+			<item value="D:\Java-Training\LayeredJdbcDemo\src\main\java\com\csmtech\controller\BookController.java"/>
+			<item value="D:\Java-Training\JdbcWriteOperation\src\main\java\com\csmtech\JdbcUpdation.java"/>
+			<item value="D:\Java-Training\JdbcPractise\src\main\java\com\csmtech\ConnectionDemo.java"/>
+			<item value="D:\Java-Training\JdbcDemo1\src\main\java\com\csmtech\util\DbUtil.java"/>
+			<item value="D:\Java-Training\JdbcDemo1\src\main\java\com\csmtech\JdbcPractice3.java"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<item key="catalog" value="internal"/>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+		</list>
+		<list key="groupId">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+		<list key="ciManagementUrl">
+		</list>
+		<list key="ciManagementSystem">
+		</list>
+		<list key="issueManagementSystem">
+		</list>
+		<list key="issueManagementUrl">
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="wizardPage">
+		<list key="groupId">
+			<item value="com.csmtech"/>
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+			<item value="AjaxFirstDemo"/>
+			<item value="EmployeeDetails1"/>
+			<item value="ServletFirstDemo1"/>
+			<item value="AccessmentJavaBatch"/>
+			<item value="EntityAssociationDemo"/>
+			<item value="UserLogin"/>
+			<item value="AssignmentQuestion"/>
+			<item value="Accessmentcsm"/>
+			<item value="AssignmentJava"/>
+			<item value="EmpCRUDProject"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="D:\Java-Training\FirstSpringProject"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+</section>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body style="background-color: yellow">
+	<h2>some form</h2>
+	<div>
+		<form method="post" action="./hello" >
+			<div>
+				<label>Name:</label> <input type="text" name="name">
+			</div>
+			<div>
+				<label>CGPA:</label> <input type="text" name="cgpa">
+			</div>
+			<div>
+				<label>DATE OF ADDIMISION:</label> <input type="date" name="doa">
+			</div>
+			<div>
+				<label>Course</label> <input type="radio" name="course" value="eng">Engineering
+				<input type="radio" name="course" value="mba">Management
+			</div>
+			<div>
+				<label>Branch</label> <select name="branch">
+					<option value="0">-select-</option>
+					<option value="cse">CSE</option>
+					<option value="it">IT</option>
+					<option value="etc">ETC</option>
+					<option value="ee">EE</option>
+				</select>
+
+
+			</div>
+			<div>
+				<label>Education</label> <input type="checkbox" name="edu"
+					value="10th">10th <input type="checkbox" name="edu"
+					value="+2sc">+2sc <input type="checkbox" name="edu"
+					value="diploma">diploma
+			</div>
+
+			<div>
+				<input type="submit" value="save">
+			</div>
+		</form>
+	</div>
+</body>
+  <!-- <!--  <script type="text/javascript">
+       function validateStudent(){
+    	   //name student
+    	   let n=document.getElementById("name").value;
+    	   if(n==""){
+    		   alert(" enter name");
+    		   return false;
+    	   }
+    	   //cgpa
+    	   let cgpa=document.getElementById("cgpa").value;
+    	   if(cgpa.length==0){
+    		   alert("enter cgpa");
+    		   return false;
+    	   }
+    	   for(let i=0;i<cgpa.length;i++){
+    		   if(!(cgpa[i]>=0 && cgpa[i]<=9)){
+    			   alert("enter the cgpa number format");
+    			   return false;
+    		   }
+    	   }
+    	   //date
+    	   date=document.getElementById('doa').value;
+    	   if(date==0){
+    		   alert("enter date");
+    		   return false;
+    	   }
+    	   date =new Date(date);
+    	   let y=new Date();
+    	   if(date>=y){
+    		   alert("enter valid date this is a future date");
+    		   return false;
+    		   
+    	   }
+    	 //radio buutton
+    	   course = document.getElementsByName('course');
+    	   let c = 0;
+    	   for (i = 0; i < course.length; i++) {
+    	   if (course[i].checked)
+    	   c++;
+    	   }
+    	   if (c < 1) {
+    	   alert("Please select Course");
+    	   return false;
+    	   }
+
+    	   //Branch
+    	   branch = document.getElementById("branchid").value;
+    	   if (branch == 0) {
+    	   alert("Please select a branch");
+    	   return false;
+    	   }
+
+    	   //checked
+    	   education = document.getElementsByName('edu');
+    	   c = 0;
+    	   for (let i = 0; i < education.length; i++) {
+    	   if (education[i].checked)
+    	   c++;
+    	   }
+
+    	   let ed = document.getElementById('10th').value
+    	   if(!ed.checked){
+    	   alert("10th must be checked");
+    	   return false;
+    	   }
+    	   if (c < 2) {
+    	   alert("Please select Your last education at least two ");
+    	   return false;
+    	   }
+
+
+
+    	   }
+    	   </script> -->
+       -->
+</html>

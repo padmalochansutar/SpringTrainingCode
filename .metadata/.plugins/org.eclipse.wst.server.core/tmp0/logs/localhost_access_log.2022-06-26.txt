@@ -1,0 +1,10 @@
+127.0.0.1 - - [26/Jun/2022:11:13:50 +0530] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [26/Jun/2022:11:13:55 +0530] "GET /UserMAnagementDemo1/loginPage.html HTTP/1.1" 200 406
+0:0:0:0:0:0:0:1 - - [26/Jun/2022:11:13:56 +0530] "GET /favicon.ico HTTP/1.1" 404 973
+0:0:0:0:0:0:0:1 - - [26/Jun/2022:11:14:05 +0530] "GET /UserMAnagementDemo1/loginPage.html?user_name=gcd&pwd=fjhg HTTP/1.1" 200 406
+0:0:0:0:0:0:0:1 - - [26/Jun/2022:11:14:32 +0530] "GET /UserMAnagementDemo1/loginPage.html?user_name=gcd&pwd=fjhg HTTP/1.1" 200 416
+0:0:0:0:0:0:0:1 - - [26/Jun/2022:11:14:34 +0530] "GET /UserMAnagementDemo1/loginPage.html?user_name=gcd&pwd=fjhg HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [26/Jun/2022:11:15:05 +0530] "GET /UserMAnagementDemo1/loginPage.html?user_name=gcd&pwd=fjhg HTTP/1.1" 200 427
+0:0:0:0:0:0:0:1 - - [26/Jun/2022:11:15:06 +0530] "GET /UserMAnagementDemo1/loginPage.html?user_name=gcd&pwd=fjhg HTTP/1.1" 304 -
+127.0.0.1 - - [26/Jun/2022:11:34:26 +0530] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [26/Jun/2022:11:34:26 +0530] "GET /ServeletDemo1/addStudent.html HTTP/1.1" 200 3211

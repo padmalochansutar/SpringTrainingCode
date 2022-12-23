@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;com.csmtech.util&apos; to &apos;PractiseJdbc3/src/main/java&apos;&#x0D;&#x0A;- Original project: &apos;CallableStatementDemo&apos;&#x0D;&#x0A;- Destination element: &apos;PractiseJdbc3/src/main/java&apos;&#x0D;&#x0A;- Original element: &apos;CallableStatementDemo/src/main/java/com.csmtech.util&apos;" description="Copy package" destination="=PractiseJdbc3/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.csmtech.util" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1655875788737" version="1.0"/>
+</session>

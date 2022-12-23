@@ -1,0 +1,152 @@
+package com.csmtech.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.xml.datatype.DatatypeConfigurationException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.csmtech.model.Garage;
+import com.csmtech.model.Sales;
+import com.csmtech.model.Type;
+import com.csmtech.repository.GarageRepository;
+import com.csmtech.repository.SalesRepository;
+import com.csmtech.repository.TypeRepository;
+
+@Controller
+public class MyController {
+
+	@Autowired
+	private GarageRepository garageRepository;
+	@Autowired
+	private SalesRepository salesRepository;
+	@Autowired
+	private TypeRepository typeRepository;
+	List<Type> data;
+
+	@GetMapping("/te")
+	public String main(Model model) {
+		model.addAttribute("findAll", garageRepository.findAll());
+		data = typeRepository.findAll();
+		
+		model.addAttribute("typeList", data);
+		return "index";
+	}
+
+	
+
+	String typeName = "";
+	Integer typeId2;
+	Integer cou = 0;
+	Integer sum;
+
+	String nameList = "";
+	Integer countList;
+	String r = "";
+    String garageName="";
+    
+	@GetMapping("/getgarageId")
+	public void garageId(@RequestParam("garageType") Integer garageId, HttpServletResponse resp, Model model)
+			throws IOException {
+		Optional<Garage> findgarageNameById = garageRepository.findById(garageId);
+		Garage garage=findgarageNameById.get();
+		garageName=garage.getGarageName();
+		PrintWriter pw = resp.getWriter();
+		long count = typeRepository.count();
+		System.out.println(count);
+
+		List<List> listOfMixedTypes = new ArrayList<List>();
+
+		ArrayList<String> listOfStrings = new ArrayList<String>();
+		ArrayList<Integer> listOfIntegers = new ArrayList<Integer>();
+
+		for (int i = 1; i <= count; i++) {
+			Optional<Type> findById = typeRepository.findById(i);
+			Type typeId = findById.get();
+			typeId2 = typeId.getTypeId();
+			typeName = typeId.getTypeName();
+
+			List<Object[]> allData = salesRepository.findByGarageIdAndTypeId(garageId, typeId2);
+
+			for (Object[] objects : allData) {
+				System.out.println(objects[0] + "  " + objects[1] + " " + objects[2] + " " + objects[3]);
+				cou = cou + (int) objects[2];
+
+			}
+//			r += "<tr><td>"+typeName+"</td><td>"+cou+"</td></tr>";
+			if (!(cou == 0)) {
+				countList = cou;
+				nameList = typeName;
+				listOfIntegers.add(cou);
+				listOfStrings.add(typeName);
+				listOfMixedTypes.add(listOfStrings);
+				listOfMixedTypes.add(listOfIntegers);
+//				Set<List> set = new HashSet<>(listOfMixedTypes);
+//				listOfMixedTypes.clear();
+//				listOfMixedTypes.addAll(set);
+				System.out.println("Data : " + listOfMixedTypes);
+				r += "<tr><td>"+listOfMixedTypes.get(0).get(0)+"</td><td>"+listOfMixedTypes.get(1).get(0)+"</td></tr>";
+				listOfIntegers.clear();
+				listOfStrings.clear();
+				listOfMixedTypes.clear();
+
+              } 
+			
+			cou = 0;
+			
+          }
+		
+		String gaName=garageName;
+		String h="<h4>Purcase of "+ gaName+"</h4>";
+		String a="<table class='table table-striped' border='1' > <tbody>";
+		
+		String d="</tbody></table>";
+		pw.print(h+a+r+d);
+		
+//		model.addAttribute("dataAll",listOfMixedTypes);
+
+//		return "index";
+
+		
+	}
+	Integer id;
+
+	@PostMapping("/saveData")
+	public String saveData(@ModelAttribute Sales sales,Model model) {
+		id = sales.getTypeId();
+		Optional<Type> ty = typeRepository.findById(id);
+		Type type = ty.get();
+        System.out.println();
+		type.setQuantity(type.getQuantity() - sales.getSalesQuantity());
+		System.out.println(type.getQuantity()+"is data");
+		if(sales.getSalesQuantity()>=type.getQuantity()) {
+			model.addAttribute("quqntity","<h3>out of stock data<h3>");
+			return "index";
+		}
+		else {
+		typeRepository.save(type);
+		sales.setSalesDate(new Date());
+
+		salesRepository.save(sales);
+		}
+		return "redirect:./te";
+	}
+}
